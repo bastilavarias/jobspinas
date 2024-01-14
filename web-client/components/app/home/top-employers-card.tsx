@@ -22,9 +22,12 @@ export default function TopEmployersCard(props: CardProps) {
                 <CardDescription>Lorem ipsum dolor sit amet.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
-                {[...Array(10)].map((n) => (
-                    <div className="mb-0 grid grid-cols-[25px_1fr] items-start last:mb-0 last:pb-0">
-                        <div>{n}</div>
+                {[...Array(10)].map((_, index) => (
+                    <div
+                        className="mb-0 grid grid-cols-[25px_1fr] items-start last:mb-0 last:pb-0"
+                        key={index}
+                    >
+                        <div>{index + 1}</div>
                         <div className="flex justify-between items-start">
                             <div className="space-y-1">
                                 <p className="text-sm font-medium leading-none ">

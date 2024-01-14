@@ -34,8 +34,11 @@ export default function NewJobPostsCard(props: CardProps) {
                     </div>
                     <Switch />
                 </div>
-                {[...Array(5)].map((n) => (
-                    <div className="mb-1 grid grid-cols-[25px_1fr] items-start pb-4 border-b last:border-b-0 last:mb-0 last:pb-0">
+                {[...Array(5)].map((_, index) => (
+                    <div
+                        className="mb-1 grid grid-cols-[25px_1fr] items-start pb-4 border-b last:border-b-0 last:mb-0 last:pb-0"
+                        key={index}
+                    >
                         <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
                         <div className="flex justify-between items-start">
                             <div className="space-y-1">
