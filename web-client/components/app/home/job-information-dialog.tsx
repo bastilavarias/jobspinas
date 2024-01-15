@@ -122,7 +122,7 @@ export function JobInformationDialog({
                                 rerum sequi! A ab commodi cum, delectus deleniti
                                 dolor earum esse est explicabo fuga harum illum
                                 laudantium maiores maxime nemo nisi tempore
-                                tenetur unde vel, veritatis vitae voluptas
+                                tenetur unde vel, veritatis vitaevoluptas
                                 voluptatum. Amet autem cupiditate deleniti,
                                 dignissimos dolor dolorem doloribus dolorum
                                 eveniet fugit hic id laudantium libero magnam
