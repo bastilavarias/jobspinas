@@ -182,6 +182,7 @@ export function JobInformationDialog({
                         </div>
                     </div>
                 </div>
+
                 <DialogFooter className="sm:justify-start">
                     <Button>
                         Easy Apply <PaperPlaneIcon />

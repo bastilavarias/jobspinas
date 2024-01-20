@@ -1,8 +1,8 @@
 import CustomFilterToolbar from '@/components/custom-filter-toolbar';
-import JobPostsTable from '@/components/app/home/job-posts-table';
-import NewJobPostsCard from '@/components/app/home/new-job-posts-card';
-import TopEmployersCard from '@/components/app/home/top-employers-card';
-import MiniProfileCard from '@/components/app/home/mini-profile-card';
+import JobPostsTable from '@/app/components/job-posts-table';
+import NewJobPostsCard from '@/app/components/new-job-posts-card';
+import TopEmployersCard from '@/app/components/top-employers-card';
+import MiniProfileCard from '@/app/components/mini-profile-card';
 
 export default function Home() {
     return (

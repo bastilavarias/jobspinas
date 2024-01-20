@@ -1,144 +1,62 @@
-'use client';
+import React from 'react';
+import { Metadata } from 'next';
+import Image from 'next/image';
 
-import * as React from 'react';
-import { User, BellIcon } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
+import SidebarNav from '@/app/profile/components/sidebar-nav';
 
-import { cn } from '@/lib/utils';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-    TooltipProvider,
-} from '@/components/ui/tooltip';
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from '@/components/ui/resizable';
-import Link from 'next/link';
-import { buttonVariants } from '@/components/ui/button';
+export const metadata: Metadata = {
+    title: 'Forms',
+    description: 'Advanced form example using react-hook-form and Zod.',
+};
 
-export default function ProfileLayout({ children }: any) {
-    const navCollapsedSize = 6;
-    const defaultLayout = [120, 440];
-    const defaultCollapsed = false;
-    const [isCollapsed, setIsCollapsed] = React.useState(defaultCollapsed);
-    const Nav = ({ links, isCollapsed }: any) => (
-        <div
-            data-collapsed={isCollapsed}
-            className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
-        >
-            <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
-                {links.map((link: any, index: any) =>
-                    isCollapsed ? (
-                        <Tooltip key={index} delayDuration={0}>
-                            <TooltipTrigger asChild>
-                                <Link
-                                    href="#"
-                                    className={cn(
-                                        buttonVariants({
-                                            variant: link.variant,
-                                            size: 'icon',
-                                        }),
-                                        'h-9 w-9',
-                                        link.variant === 'default' &&
-                                            'dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white'
-                                    )}
-                                >
-                                    <link.icon className="h-4 w-4" />
-                                    <span className="sr-only">
-                                        {link.title}
-                                    </span>
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent
-                                side="right"
-                                className="flex items-center gap-4"
-                            >
-                                {link.title}
-                            </TooltipContent>
-                        </Tooltip>
-                    ) : (
-                        <Link
-                            key={index}
-                            href="#"
-                            className={cn(
-                                buttonVariants({
-                                    variant: link.variant,
-                                    size: 'lg',
-                                }),
-                                link.variant === 'default' &&
-                                    'dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white',
-                                'justify-start'
-                            )}
-                        >
-                            <link.icon className="mr-4 h-6 w-6" />
-                            {link.title}
-                        </Link>
-                    )
-                )}
-            </nav>
-        </div>
-    );
+const sidebarNavItems = [
+    {
+        title: 'Notifications',
+        href: '/profile/notifications',
+    },
+    {
+        title: 'Profile',
+        href: '/profile',
+    },
+    {
+        title: 'My Jobs',
+        href: '/profile/my-jobs',
+    },
+    {
+        title: 'Messages',
+        href: '/profile/messages',
+    },
+    {
+        title: 'Settings',
+        href: '/profile/settings',
+    },
+];
 
+interface LayoutProps {
+    children: React.ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
     return (
         <div className="container">
-            <TooltipProvider delayDuration={0}>
-                <ResizablePanelGroup
-                    direction="horizontal"
-                    onLayout={(sizes: number[]) => {
-                        document.cookie = `react-resizable-panels:layout=${JSON.stringify(
-                            sizes
-                        )}`;
-                    }}
-                    className="h-full max-h-[800px] items-stretch"
-                >
-                    <ResizablePanel
-                        defaultSize={defaultLayout[0]}
-                        minSize={5}
-                        maxSize={25}
-                        collapsedSize={navCollapsedSize}
-                        collapsible={true}
-                        onCollapse={(collapsed: any) => {
-                            const _collapsed = !!collapsed;
-                            setIsCollapsed(_collapsed);
-                            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
-                                _collapsed
-                            )}`;
-                        }}
-                        className={cn(
-                            isCollapsed &&
-                                'min-w-[50px] transition-all duration-300 ease-in-out'
-                        )}
-                    >
-                        <Nav
-                            isCollapsed={isCollapsed}
-                            links={[
-                                {
-                                    title: 'Notifications',
-                                    icon: BellIcon,
-                                    variant: 'default',
-                                },
-                                {
-                                    title: 'Application',
-                                    icon: Inbox,
-                                    variant: 'default',
-                                },
-                                {
-                                    title: 'Profile',
-                                    icon: File,
-                                    variant: 'ghost',
-                                },
-                            ]}
-                        />
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
-                    <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-                        <Tabs defaultValue="all">{children}</Tabs>
-                    </ResizablePanel>
-                </ResizablePanelGroup>
-            </TooltipProvider>
+            <div className="space-y-6 p-10 pb-16">
+                <div className="space-y-0.5">
+                    <h2 className="text-2xl font-bold tracking-tight">
+                        Settings
+                    </h2>
+                    <p className="text-muted-foreground">
+                        Manage your account settings and set e-mail preferences.
+                    </p>
+                </div>
+                <Separator className="my-6" />
+                <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
+                    <aside className="-mx-4 lg:w-1/5">
+                        <SidebarNav items={sidebarNavItems} />
+                    </aside>
+                    <div className="flex-1 lg:max-w-full">{children}</div>
+                </div>
+            </div>
         </div>
     );
 }

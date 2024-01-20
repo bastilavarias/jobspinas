@@ -16,7 +16,7 @@ import {
     PlusCircledIcon,
 } from '@radix-ui/react-icons';
 import { Badge } from '@/components/ui/badge';
-import { JobInformationDialog } from '@/components/app/home/job-information-dialog';
+import { JobInformationDialog } from '@/app/components/job-information-dialog';
 import { useState } from 'react';
 
 export default function JobPostsTable() {
