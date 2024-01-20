@@ -18,6 +18,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { JobInformationDialog } from '@/app/components/job-information-dialog';
 import { useState } from 'react';
+import { Building2, MapPin, Briefcase, CalendarClock } from 'lucide-react';
 
 export default function JobPostsTable() {
     const [open, setOpen] = useState(false);
@@ -28,10 +29,27 @@ export default function JobPostsTable() {
                 <TableCaption>A list of your suggested job posts.</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>Job</TableHead>
-                        <TableHead>Company</TableHead>
-                        <TableHead>Location</TableHead>
-                        <TableHead className="text-right"></TableHead>
+                        <TableHead>
+                            <span className="flex items-center">
+                                <Briefcase size={20} className="mr-1" /> Job
+                            </span>
+                        </TableHead>
+                        <TableHead>
+                            <span className="flex items-center">
+                                <Building2 size={20} className="mr-1" /> Company
+                            </span>
+                        </TableHead>
+                        <TableHead>
+                            <span className="flex items-center">
+                                <MapPin size={20} className="mr-1" /> Location
+                            </span>
+                        </TableHead>
+                        <TableHead>
+                            <span className="flex items-center">
+                                <CalendarClock size={20} className="mr-1" />{' '}
+                                Posted
+                            </span>
+                        </TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -90,7 +108,7 @@ export default function JobPostsTable() {
                                 </div>
                             </TableCell>
 
-                            <TableCell className="text-right">Urgent</TableCell>
+                            <TableCell>Urgent</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
