@@ -43,7 +43,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="space-y-6 p-10 pb-16">
                 <div className="space-y-0.5">
                     <h2 className="text-2xl font-bold tracking-tight">
-                        Settings
+                        Profile
                     </h2>
                     <p className="text-muted-foreground">
                         Manage your account settings and set e-mail preferences.

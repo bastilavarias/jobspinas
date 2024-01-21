@@ -19,9 +19,11 @@ import { Badge } from '@/components/ui/badge';
 import { JobInformationDialog } from '@/app/components/job-information-dialog';
 import { useState } from 'react';
 import { Building2, MapPin, Briefcase, CalendarClock } from 'lucide-react';
+import { JobFormDialog } from '@/app/components/job-form-dialog';
 
 export default function JobPostsTable() {
-    const [open, setOpen] = useState(false);
+    const [informationDialogOpen, setInformationDialogOpen] = useState(false);
+    const [formDialogOpen, setFormDialogOpen] = useState(false);
 
     return (
         <>
@@ -54,17 +56,18 @@ export default function JobPostsTable() {
                 </TableHeader>
                 <TableBody>
                     {[...Array(20)].map((_, index) => (
-                        <TableRow
-                            style={{
-                                cursor: 'pointer',
-                            }}
-                            onClick={() => setOpen(!open)}
-                            key={index}
-                        >
+                        <TableRow key={index}>
                             <TableCell className="mr-5">
                                 <div className="py-1 pb-2 flex items-start justify-between">
                                     <div>
-                                        <p className="font-bold mb-2 text-xl">
+                                        <p
+                                            className="font-bold mb-2 text-xl cursor-pointer"
+                                            onClick={() =>
+                                                setInformationDialogOpen(
+                                                    !informationDialogOpen
+                                                )
+                                            }
+                                        >
                                             Software Engineer
                                         </p>
                                         <div className="flex items-center">
@@ -74,7 +77,14 @@ export default function JobPostsTable() {
                                                 </span>
                                                 <PaperPlaneIcon className="h-3 w-3" />
                                             </Button>
-                                            <Button className="h-5 rounded-md px-3 text-xs mr-1">
+                                            <Button
+                                                className="h-5 rounded-md px-3 text-xs mr-1"
+                                                onClick={() =>
+                                                    setFormDialogOpen(
+                                                        !formDialogOpen
+                                                    )
+                                                }
+                                            >
                                                 <span>Apply</span>
                                             </Button>
                                             <Button
@@ -113,7 +123,11 @@ export default function JobPostsTable() {
                     ))}
                 </TableBody>
             </Table>
-            <JobInformationDialog open={open} setOpen={setOpen} />
+            <JobInformationDialog
+                open={informationDialogOpen}
+                setOpen={setInformationDialogOpen}
+            />
+            <JobFormDialog open={formDialogOpen} setOpen={setFormDialogOpen} />
         </>
     );
 }

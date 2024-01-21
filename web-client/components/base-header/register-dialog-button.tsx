@@ -1,21 +1,32 @@
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
+'use client';
 
+import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { CustomDatePicker } from '@/components/custom-date-picker';
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+} from '@/components/ui/form';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function RegisterDialogButton(props: any) {
+    const form = useForm();
+
+    const onSubmit = () => {};
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -51,38 +62,111 @@ export default function RegisterDialogButton(props: any) {
                         </div>
                     </div>
                     <div className="grid grid-cols-12"></div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="first_name">First Name</Label>
-                        <Input id="first_name" type="text" />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="last_name">Last Name</Label>
-                        <Input id="last_name" type="text" />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="birthday">Birthday</Label>
-                        <CustomDatePicker />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="m@example.com"
-                        />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="password">Password</Label>
-                        <Input id="password" type="password" />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="password">Confirm Password</Label>
-                        <Input id="password" type="password" />
+                    <div>
+                        <Form {...form}>
+                            <form
+                                onSubmit={form.handleSubmit(onSubmit)}
+                                className="space-y-8"
+                            >
+                                <FormField
+                                    control={form.control}
+                                    name="first_name"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>First Name</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="First Name"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="last_name"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Last Name</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Last Name"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="birthday"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Birthday</FormLabel>
+                                            <FormControl>
+                                                <CustomDatePicker />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Email</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    type="email"
+                                                    placeholder="Email"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="password"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Password</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="password"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>
+                                                Confirm Password
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    type="password"
+                                                    placeholder="Confirm Password"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button type="submit" className="w-full">
+                                    Register
+                                </Button>
+                            </form>
+                        </Form>
                     </div>
                 </div>
-                <DialogFooter className="sm:justify-start">
-                    <Button className="w-full">Register</Button>
-                </DialogFooter>
             </DialogContent>
         </Dialog>
     );

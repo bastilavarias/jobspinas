@@ -1,20 +1,32 @@
+'use client';
+
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 import { Button } from '@/components/ui/button';
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+} from '@/components/ui/form';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function LoginDialogButton(props: any) {
+    const form = useForm();
+
+    const onSubmit = () => {};
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -51,22 +63,49 @@ export default function LoginDialogButton(props: any) {
                             </span>
                         </div>
                     </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="m@example.com"
-                        />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="password">Password</Label>
-                        <Input id="password" type="password" />
-                    </div>
+                    <Form {...form}>
+                        <form
+                            onSubmit={form.handleSubmit(onSubmit)}
+                            className="space-y-8"
+                        >
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Email</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                type="email"
+                                                placeholder="Email"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="password"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Password</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                type="password"
+                                                placeholder="Password"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                    </FormItem>
+                                )}
+                            />
+                            <Button type="submit" className="w-full">
+                                Login
+                            </Button>
+                        </form>
+                    </Form>
                 </div>
-                <DialogFooter className="sm:justify-start">
-                    <Button className="w-full">Login</Button>
-                </DialogFooter>
             </DialogContent>
         </Dialog>
     );
