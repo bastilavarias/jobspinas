@@ -23,9 +23,9 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <div className="container grid grid-cols-12 gap-12">
-            <div className="col-span-8">{children}</div>
-            <div className="col-span-4">
+        <div className="container grid grid-cols-12 gap-6">
+            <div className="col-span-9">{children}</div>
+            <div className="col-span-3">
                 <EmployerProfileActionCard className="mb-5" />
                 <PostedJobActivities />
             </div>

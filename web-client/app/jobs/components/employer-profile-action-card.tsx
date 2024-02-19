@@ -14,7 +14,7 @@ type CardProps = React.ComponentProps<typeof Card>;
 
 export default function EmployerProfileActionCard(props: CardProps) {
     return (
-        <Card className={cn('w-full', props.className)} {...props}>
+        <Card className={cn('w-full shadow-none', props.className)} {...props}>
             <CardHeader>
                 <CardTitle>Profile</CardTitle>
                 <CardDescription>Lorem ipsum dolor sit amet.</CardDescription>

@@ -27,6 +27,16 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
 import BaseRichtextEditor from '@/components/base-richtext-editor';
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { RocketIcon } from 'lucide-react';
+import React from 'react';
 
 const profileFormSchema = z.object({
     username: z
@@ -75,17 +85,27 @@ const jobIndustriesPhilippines: string[] = [
     'Retail',
     'Transportation',
 ];
+const jobTypes: string[] = [
+    'Full-time',
+    'Part-time',
+    'Contractual',
+    'Project-based',
+    'Internship',
+];
+const experienceLevels: string[] = [
+    'Entry',
+    'Junior',
+    'Mid-Senior',
+    'Director',
+    'Executive',
+];
+const workSetups: string[] = ['Remote', 'On-site'];
 
 export default function CreateJobForm() {
     const form = useForm<ProfileFormValues>({
         resolver: zodResolver(profileFormSchema),
         defaultValues,
         mode: 'onChange',
-    });
-
-    const { fields, append } = useFieldArray({
-        name: 'urls',
-        control: form.control,
     });
 
     function onSubmit(data: ProfileFormValues) {
@@ -102,78 +122,196 @@ export default function CreateJobForm() {
     }
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                    control={form.control}
-                    name="username"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Job Title</FormLabel>
-                            <FormControl>
-                                <Input
-                                    placeholder="Please enter the job title"
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormDescription>
-                                Please do not enter unecessary words like
-                                Urgent, Job Location, Shift, etc.. Please only
-                                enter the job position title in here.{' '}
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Industry</FormLabel>
-                            <Select
-                                onValueChange={field.onChange}
-                                defaultValue={field.value}
-                            >
-                                <FormControl>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select a verified email to display" />
-                                    </SelectTrigger>
-                                </FormControl>
-                                <SelectContent>
-                                    {jobIndustriesPhilippines.map(
-                                        (industry, index) => {
-                                            return (
-                                                <SelectItem value={industry}>
-                                                    {industry}
-                                                </SelectItem>
-                                            );
-                                        }
-                                    )}
-                                </SelectContent>
-                            </Select>
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="bio"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Description</FormLabel>
-                            <FormControl>
-                                <BaseRichtextEditor />
-                            </FormControl>
-                            <FormDescription>
-                                You can <span>@mention</span> other users and
-                                organizations to link to them.
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit">Update profile</Button>
-            </form>
-        </Form>
+        <Card>
+            <CardHeader>
+                <CardTitle>Create a new Job</CardTitle>
+                <CardDescription>Lorem ipsum dolor sit amet.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form {...form}>
+                    <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-8"
+                    >
+                        <FormField
+                            control={form.control}
+                            name="username"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Job Title</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Please enter the job title"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormDescription>
+                                        Please do not enter unecessary words
+                                        like Urgent, Job Location, Shift, etc..
+                                        Please only enter the job position title
+                                        in here.{' '}
+                                    </FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Industry</FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select a job industry" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {jobIndustriesPhilippines.map(
+                                                (industry, index) => {
+                                                    return (
+                                                        <SelectItem
+                                                            value={industry}
+                                                        >
+                                                            {industry}
+                                                        </SelectItem>
+                                                    );
+                                                }
+                                            )}
+                                        </SelectContent>
+                                    </Select>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Type</FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select job type" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {jobTypes.map((type, index) => {
+                                                return (
+                                                    <SelectItem value={type}>
+                                                        {type}
+                                                    </SelectItem>
+                                                );
+                                            })}
+                                        </SelectContent>
+                                    </Select>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Experience level</FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select level" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {experienceLevels.map(
+                                                (level, index) => {
+                                                    return (
+                                                        <SelectItem
+                                                            value={level}
+                                                        >
+                                                            {level}
+                                                        </SelectItem>
+                                                    );
+                                                }
+                                            )}
+                                        </SelectContent>
+                                    </Select>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Work Setup</FormLabel>
+                                    <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                    >
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select setup" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            {workSetups.map((setup, index) => {
+                                                return (
+                                                    <SelectItem value={setup}>
+                                                        {setup}
+                                                    </SelectItem>
+                                                );
+                                            })}
+                                        </SelectContent>
+                                    </Select>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="username"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Slot</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Please enter the job title"
+                                            type="number"
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="bio"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Description</FormLabel>
+                                    <FormControl>
+                                        <BaseRichtextEditor />
+                                    </FormControl>
+                                    <FormDescription>
+                                        You can <span>@mention</span> other
+                                        users and organizations to link to them.
+                                    </FormDescription>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <Button type="submit">Post Job</Button>
+                    </form>
+                </Form>
+            </CardContent>
+        </Card>
     );
 }

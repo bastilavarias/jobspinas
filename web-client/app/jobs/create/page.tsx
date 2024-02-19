@@ -1,17 +1,27 @@
-import JobsTable from '@/app/jobs/components/jobs-table';
 import CreateJobForm from '@/app/jobs/create/components/form';
 import React from 'react';
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+} from '@/components/ui/breadcrumb';
 
 export default function Page() {
     return (
         <div className="space-y-6">
             <div>
-                <h3 className="text-lg font-medium">Jobs</h3>
-                <p className="text-sm text-muted-foreground">Create new Job</p>
+                <Breadcrumb>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/jobs">Jobs</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/jobs/create" isCurrentPage>
+                            Job Form
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
             </div>
-            <div>
-                <CreateJobForm />
-            </div>
+            <CreateJobForm />
         </div>
     );
 }
