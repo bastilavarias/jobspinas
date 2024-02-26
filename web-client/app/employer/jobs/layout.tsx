@@ -9,8 +9,8 @@ import JobPostsTable from '@/app/components/job-posts-table';
 import MiniProfileCard from '@/app/components/mini-profile-card';
 import NewJobPostsCard from '@/app/components/new-job-posts-card';
 import TopEmployersCard from '@/app/components/top-employers-card';
-import EmployerProfileActionCard from '@/app/jobs/components/employer-profile-action-card';
-import PostedJobActivities from '@/app/jobs/components/posted-job-activities';
+import EmployerProfileActionCard from '@/app/employer/jobs/components/employer-profile-action-card';
+import PostedJobActivities from '@/app/employer/jobs/components/posted-job-activities';
 
 export const metadata: Metadata = {
     title: 'Jobs',

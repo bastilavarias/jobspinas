@@ -4,7 +4,7 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
 } from '@/components/ui/breadcrumb';
-import PipelineBoard from '@/app/jobs/pipeline/components/board';
+import PipelineBoard from '@/app/employer/jobs/pipeline/components/board';
 import {
     Card,
     CardContent,

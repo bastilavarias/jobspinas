@@ -1,4 +1,4 @@
-import CreateJobForm from '@/app/jobs/create/components/form';
+import CreateJobForm from '@/app/employer/jobs/create/components/form';
 import React from 'react';
 import {
     Breadcrumb,

@@ -1,4 +1,4 @@
-import JobsTable from '@/app/jobs/components/jobs-table';
+import JobsTable from '@/app/employer/jobs/components/jobs-table';
 
 export default function Page() {
     return (
