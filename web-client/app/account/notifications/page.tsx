@@ -1,5 +1,5 @@
 import React from 'react';
-import NotificationCard from '@/app/profile/notifications/components/notification-card';
+import NotificationCard from '@/app/account/notifications/components/notification-card';
 
 export default function Page() {
     return (

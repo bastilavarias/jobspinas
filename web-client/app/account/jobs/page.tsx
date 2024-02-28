@@ -1,4 +1,4 @@
-import AppliedJobCard from '@/app/profile/my-jobs/components/applied-job-card';
+import AppliedJobCard from '@/app/account/jobs/components/applied-job-card';
 
 export default function Page() {
     return (

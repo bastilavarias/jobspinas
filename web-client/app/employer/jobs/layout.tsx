@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 import { Separator } from '@/components/ui/separator';
-import SidebarNav from '@/app/profile/components/sidebar-nav';
+import SidebarNav from '@/app/account/components/sidebar-nav';
 import CustomFilterToolbar from '@/components/custom-filter-toolbar';
 import JobPostsTable from '@/app/components/job-posts-table';
 import MiniProfileCard from '@/app/components/mini-profile-card';

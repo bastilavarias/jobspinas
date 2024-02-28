@@ -116,11 +116,15 @@ export const columns: ColumnDef<Job>[] = [
                             Actions
                         </DropdownMenuLabel>
                         <DropdownMenuItem asChild>
-                            <Link href="/jobs/create">Edit Details</Link>
+                            <Link href="/employer/jobs/create">
+                                Edit Details
+                            </Link>
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <Link href="/jobs/pipeline">View Pipeline</Link>
+                            <Link href="/employer/jobs/pipeline">
+                                View Pipeline
+                            </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                             <div className="text-destructive">Delete</div>
@@ -164,7 +168,7 @@ export default function JobsTable() {
             <div className="flex items-center py-4">
                 <Input placeholder="Filter jobs..." className="max-w-sm" />
                 <Button variant="outline" className="ml-auto" asChild>
-                    <Link href="/jobs/create">
+                    <Link href="/employer/jobs/create">
                         <PlusIcon className="mr-2 h-4 w-4" /> Create new Job
                     </Link>
                 </Button>

@@ -3,33 +3,38 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 import { Separator } from '@/components/ui/separator';
-import SidebarNav from '@/app/profile/components/sidebar-nav';
+import SidebarNav from '@/app/account/components/sidebar-nav';
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+} from '@/components/ui/breadcrumb';
 
 export const metadata: Metadata = {
-    title: 'Forms',
+    title: 'Your account',
     description: 'Advanced form example using react-hook-form and Zod.',
 };
 
 const sidebarNavItems = [
     {
         title: 'Notifications',
-        href: '/profile/notifications',
+        href: '/account/notifications',
     },
     {
         title: 'Profile',
-        href: '/profile',
+        href: '/account',
     },
     {
-        title: 'My Jobs',
-        href: '/profile/my-jobs',
+        title: 'Jobs',
+        href: '/account/jobs',
     },
     {
         title: 'Messages',
-        href: '/profile/messages',
+        href: '/account/messages',
     },
     {
         title: 'Settings',
-        href: '/profile/settings',
+        href: '/account/settings',
     },
 ];
 
@@ -40,16 +45,17 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
     return (
         <div className="container">
-            <div className="space-y-6 p-10 pb-16">
-                <div className="space-y-0.5">
-                    <h2 className="text-2xl font-bold tracking-tight">
-                        Profile
-                    </h2>
-                    <p className="text-muted-foreground">
-                        Manage your account settings and set e-mail preferences.
-                    </p>
+            <div className="space-y-12">
+                <div>
+                    <Breadcrumb>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink>Profile</BreadcrumbLink>
+                        </BreadcrumbItem>
+                    </Breadcrumb>
                 </div>
-                <Separator className="my-6" />
                 <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
                     <aside className="-mx-4 lg:w-1/5">
                         <SidebarNav items={sidebarNavItems} />

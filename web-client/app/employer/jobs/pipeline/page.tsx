@@ -27,10 +27,15 @@ export default function Page() {
             <div>
                 <Breadcrumb>
                     <BreadcrumbItem>
-                        <BreadcrumbLink href="/jobs">Jobs</BreadcrumbLink>
+                        <BreadcrumbLink href="/employer/jobs">
+                            Jobs
+                        </BreadcrumbLink>
                     </BreadcrumbItem>
                     <BreadcrumbItem>
-                        <BreadcrumbLink href="/jobs/create" isCurrentPage>
+                        <BreadcrumbLink
+                            href="/employer/jobs/create"
+                            isCurrentPage
+                        >
                             Pipeline
                         </BreadcrumbLink>
                     </BreadcrumbItem>
