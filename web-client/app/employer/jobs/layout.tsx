@@ -24,7 +24,21 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
     return (
         <div className="container grid grid-cols-12 gap-6">
-            <div className="col-span-9">{children}</div>
+            <div className="col-span-9">
+                <div className="flex-1 space-y-8">
+                    <div className="flex items-center justify-between space-y-2">
+                        <div>
+                            <h2 className="text-3xl font-bold tracking-tight">
+                                Jobs
+                            </h2>
+                            <p className="text-md text-muted-foreground">
+                                Manage the jobs you've created as employer.
+                            </p>
+                        </div>
+                    </div>
+                    {children}
+                </div>
+            </div>
             <div className="col-span-3">
                 <EmployerProfileActionCard className="mb-5" />
                 <PostedJobActivities />

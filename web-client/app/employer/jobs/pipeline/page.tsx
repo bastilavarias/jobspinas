@@ -24,23 +24,21 @@ import { Button } from '@/components/ui/button';
 export default function Page() {
     return (
         <div className="space-y-6">
-            <div>
-                <Breadcrumb>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink href="/employer/jobs">
-                            Jobs
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink
-                            href="/employer/jobs/create"
-                            isCurrentPage
-                        >
-                            Pipeline
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                </Breadcrumb>
-            </div>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <BreadcrumbLink
+                        href="/employer/jobs"
+                        className="text-muted-foreground"
+                    >
+                        Jobs
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href="/employer/jobs/create" isCurrentPage>
+                        Pipeline
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+            </Breadcrumb>
             <Card>
                 <CardHeader>
                     <CardTitle className="flex justify-between items-center">

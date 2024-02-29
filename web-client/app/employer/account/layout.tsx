@@ -42,27 +42,17 @@ export default function Layout({ children }: LayoutProps) {
     return (
         <div className="container">
             <div className="space-y-6">
-                <div>
-                    <Breadcrumb>
-                        <BreadcrumbItem>
-                            <BreadcrumbLink
-                                href="/employer"
-                                className="text-muted-foreground"
-                            >
-                                Acme Inc..
-                            </BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem>
-                            <BreadcrumbLink href="/employer/account">
-                                Account Management
-                            </BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem>
-                            <BreadcrumbLink isCurrentPage>
-                                Profile
-                            </BreadcrumbLink>
-                        </BreadcrumbItem>
-                    </Breadcrumb>
+                <div className="flex-1 space-y-8">
+                    <div className="flex items-center justify-between space-y-2">
+                        <div>
+                            <h2 className="text-3xl font-bold tracking-tight">
+                                Account
+                            </h2>
+                            <p className="text-md text-muted-foreground">
+                                Lorem ipsum dolor sit amet.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
                     <aside className="-mx-4 lg:w-1/5">

@@ -2,6 +2,8 @@ import LoginDialogButton from '@/components/base-header/login-dialog-button';
 import RegisterDialogButton from '@/components/base-header/register-dialog-button';
 import { ModeToggleButton } from '@/components/base-header/mode-toggle-button';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import React from 'react';
 
 export default function BaseHeader() {
     return (
@@ -15,9 +17,27 @@ export default function BaseHeader() {
                     </div>
                     <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
                         <nav className="flex items-center">
+                            <Button
+                                variant="ghost"
+                                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                            >
+                                <Link href="/employer">Dashboard</Link>
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                            >
+                                <Link href="/employer/jobs">Jobs</Link>
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                            >
+                                <Link href="/employer/account">Account</Link>
+                            </Button>
                             <LoginDialogButton
                                 variant="ghost"
-                                className="mr-3"
+                                className="mr-3 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                             />
                             <RegisterDialogButton className="mr-3" />
                             <ModeToggleButton />
