@@ -7,6 +7,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { MapPin } from 'lucide-react';
 export default function CustomFilterToolbar(props: any) {
     return (
         <div
@@ -15,7 +16,10 @@ export default function CustomFilterToolbar(props: any) {
                 'flex flex-col items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16'
             )}
         >
-            <div className="text-xs w-full">Current Location</div>
+            <div className="text-sm w-full flex items-center">
+                <MapPin className="inline mr-1 text-sm" size={15} />
+                Manila, Philippines
+            </div>
             <div className="ml-auto flex w-full sm:justify-end">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
