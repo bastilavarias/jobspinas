@@ -46,7 +46,7 @@ export default function NewJobPostsCard(props: CardProps) {
                                     <span>Software Engineer</span>
                                 </p>
                                 <p className="text-xs underline">
-                                    Side Project Alliance
+                                    Chanz Global Business Inc
                                 </p>
                                 <p className="text-xs text-muted-foreground">
                                     ₱15,000 - ₱20,000

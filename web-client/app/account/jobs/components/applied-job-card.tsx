@@ -19,7 +19,7 @@ export default function AppliedJobCard() {
                 <CardTitle className="text-2xl">Software Engineer</CardTitle>
                 <CardDescription>
                     <span className="font-bold underline cursor-pointer">
-                        Side Project Alliance
+                        Chanz Global Business Inc
                     </span>{' '}
                     · <Badge>₱15,000 - ₱20,000</Badge>
                 </CardDescription>

@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-    title: 'Side Project Alliance',
+    title: 'Chanz Global Business Inc',
     description: 'Advanced form example using react-hook-form and Zod.',
 };
 

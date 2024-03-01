@@ -12,7 +12,7 @@ export default function NotificationCard() {
         <Card>
             <CardHeader>
                 <CardTitle className="flex justify-between items-start">
-                    <span className="font-bold">Side Project Alliance</span>
+                    <span className="font-bold">Chanz Global Business Inc</span>
                     <span className="text-xs text-muted-foreground">
                         3 days ago
                     </span>

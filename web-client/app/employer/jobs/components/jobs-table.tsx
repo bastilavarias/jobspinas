@@ -39,7 +39,7 @@ const data: Job[] = [
     {
         id: 'm5gr84i9',
         title: 'Software Engineer',
-        company: 'Side Project Alliance',
+        company: 'Chanz Global Business Inc',
         industry: 'I.T Development',
         salary: '55000',
         created_at: '4 hours ago',

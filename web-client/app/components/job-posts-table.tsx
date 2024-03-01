@@ -102,7 +102,7 @@ export default function JobPostsTable() {
                             </TableCell>
                             <TableCell className="flex flex-col items-start h-full">
                                 <p className="font-bold mb-2">
-                                    Side Project Alliance
+                                    Chanz Global Business Inc
                                 </p>
                                 <Button
                                     variant="ghost"

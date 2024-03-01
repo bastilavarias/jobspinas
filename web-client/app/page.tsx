@@ -1,7 +1,6 @@
 import CustomFilterToolbar from '@/components/custom-filter-toolbar';
 import JobPostsTable from '@/app/components/job-posts-table';
 import NewJobPostsCard from '@/app/components/new-job-posts-card';
-import TopEmployersCard from '@/app/components/top-employers-card';
 import MiniProfileCard from '@/app/components/mini-profile-card';
 import Image from 'next/image';
 
@@ -29,7 +28,6 @@ export default function Home() {
             <div className="col-span-3">
                 <MiniProfileCard className="mb-5" />
                 <NewJobPostsCard className="mb-5" />
-                <TopEmployersCard />
             </div>
         </div>
     );

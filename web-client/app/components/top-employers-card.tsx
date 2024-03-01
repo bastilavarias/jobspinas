@@ -31,7 +31,7 @@ export default function TopEmployersCard(props: CardProps) {
                         <div className="flex justify-between items-start">
                             <div className="space-y-1">
                                 <p className="text-sm font-medium leading-none ">
-                                    <span>Side Project Alliance</span>
+                                    <span>Chanz Global Business Inc</span>
                                 </p>
                                 <p className="text-xs text-muted-foreground">
                                     99 Jobs, 100% Positive rate

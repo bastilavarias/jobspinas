@@ -82,7 +82,7 @@ export function JobFormDialog({
                                 <h6 className="text-2xl">Software Engineer</h6>
                                 <p>
                                     <span className="font-bold underline cursor-pointer">
-                                        Side Project Alliance
+                                        Chanz Global Business Inc
                                     </span>{' '}
                                     · <Badge>₱15,000 - ₱20,000</Badge>
                                 </p>
